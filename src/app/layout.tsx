@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "React Query Sandbox",
-  description:
-    "Learn how to use TanStack React Query effectively",
+  description: "Learn how to use TanStack React Query effectively",
 };
 
 export default function RootLayout({
@@ -27,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ReactQueryProvider>
           {children}
           <Toaster richColors position="top-right" />
