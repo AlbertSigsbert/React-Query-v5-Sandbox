@@ -8,13 +8,7 @@ export type CommentsResponse = {
 };
 
 // This simulates a call to your DB/ORM
-function getComments(
-  take: number,
-  cursor?: number
-): {
-  data: Comment[];
-  nextCursor: number | null;
-} {
+function getComments(take: number,cursor?: number,): {data: Comment[]; nextCursor: number | null} {
   // Find the starting index based on cursor
   let startIndex = 0;
 
@@ -53,10 +47,7 @@ export async function GET(request: Request) {
 
   // Randomly throw an error (10% chance)
   if (Math.random() < 0.1) {
-    return NextResponse.json(
-      { error: "Failed to fetch comments" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch comments" }, { status: 500 });
   }
 
   // Get paginated comments
@@ -77,10 +68,7 @@ export async function POST(request: Request) {
 
   // Validate required fields
   if (!text) {
-    return NextResponse.json(
-      { error: "Missing required fields" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
   // Simulate network delay (between 300ms and 1000ms)
@@ -89,10 +77,7 @@ export async function POST(request: Request) {
 
   // Randomly throw an error (10% chance)
   if (Math.random() < 0.1) {
-    return NextResponse.json(
-      { error: "Failed to create comment" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to create comment" }, { status: 500 });
   }
 
   // In a real app, this would come from your authentication service
